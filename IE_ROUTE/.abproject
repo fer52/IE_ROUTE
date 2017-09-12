@@ -1,0 +1,45 @@
+{
+  "ProjectName": "IE_ROUTE",
+  "ProjectGuid": "72ac3937-4b0d-4e53-a2ed-13894657ac8c",
+  "projectVersion": 1,
+  "AppIdentifier": "com.telerik.IEROUTE",
+  "DisplayName": "IE_ROUTE",
+  "Author": "",
+  "Description": "IE_ROUTE",
+  "BundleVersion": "1.0",
+  "AndroidVersionCode": "1",
+  "iOSDeviceFamily": [
+    "1",
+    "2"
+  ],
+  "iOSBackgroundMode": [],
+  "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
+  "FrameworkVersion": "6.4.0",
+  "AndroidPermissions": [
+    "android.permission.INTERNET"
+  ],
+  "DeviceOrientations": [
+    "Portrait",
+    "Landscape"
+  ],
+  "AndroidHardwareAcceleration": "true",
+  "iOSStatusBarStyle": "Default",
+  "Framework": "Cordova",
+  "WP8TileTitle": "",
+  "WP8Publisher": "",
+  "WP8Capabilities": [
+    "ID_CAP_NETWORKING",
+    "ID_CAP_WEBBROWSERCOMPONENT"
+  ],
+  "WP8Requirements": [],
+  "WP8PublisherID": "{ccdc95fc-2d2b-4393-ac57-5a17cd8999d7}",
+  "WP8ProductID": "{ec139877-61c2-4027-9d61-7546a5ca8beb}",
+  "WPSdk": "8.0",
+  "WP8PackageIdentityName": "1234Telerik.IEROUTE",
+  "WP8WindowsPublisherName": "CN=Telerik",
+  "WP8SupportedResolutions": [
+    "ID_RESOLUTION_WVGA",
+    "ID_RESOLUTION_WXGA",
+    "ID_RESOLUTION_HD720P"
+  ]
+}
