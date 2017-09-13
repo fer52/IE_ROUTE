@@ -1,39 +1,167 @@
 <!DOCTYPE html>
 <!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+http://www.apache.org/licenses/LICENSE-2.0
 
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
 -->
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World!</title>
+        <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+        
+        <link rel="stylesheet" type="text/css" href="css/themeInit.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons.min.css" />
+        <title>ROUTE</title>
     </head>
     <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+        <!--<div class="app">
+        </div>-->
+        <div id="loginPage" data-role="page" >
+            <div data-role="header" class="mt-header" data-position="fixed"  data-tap-toggle="false">
+                <h1 style="overflow:initial">RUTAS</h1>
+            </div>
+            <div data-role="content" style="padding-top: 3%;">
+
+                Usuario :
+                <input type="text" id="userName" style="text-transform:uppercase" value="" />
+                Clave:
+                <input type="password" id="pwd" value="" />
+
+                <a id="logIn" data-role="button" >Ingresar</a>
+
+                <br/><br/>
+                <label>Update 4.0.1</label>
             </div>
         </div>
+
+        <div id="pageactive" data-role="page" >
+            <div id="modalFinished" style="display:none;position:fixed;width:100%;height:100%;border: 0px solid blue;z-index: 99;background: rgba(0, 0, 0, 0.8);overflow: hidden;">
+                <div id="btnFinished" style="position: fixed;margin-top: 25%;width: 100%;padding:3em;background:#46B559" class="ui-input-btn ui-btn ">
+                    <span class="material-icons mt-iconmenu">clear_all</span>
+                    <span style="float:right">Finalizar Ruta</span><br/>
+                    <span style="float:right">Ingresar Comprobante</span>
+                    <input type="button" data-enhanced="true" id="moveFinished" value="arrive">
+                </div>
+            </div>
+
+            <div data-role="header" class="mt-header" data-position="fixed" data-tap-toggle="false">
+                <!--<span class="material-icons" style="position:absolute">arrow_back</span>-->
+                <!--<span id="moveSettings" class="material-icons" style="position:absolute;right:0px">menu</span>-->
+                <h1 style="overflow:initial">RUTAS </h1>
+            </div>
+            <div data-role="content" style="padding-top: 5%;">
+
+                <ul data-role="listview">
+                    <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-first-child">
+                        RUTAS
+                    </li>
+                    <ul id="listAllActive" data-role="listview" data-inset="true">
+                    </ul>
+                    <p style="height:60px;"></p>
+                </ul>
+
+                <span style="bottom:85px" class="textButton position-right">Nueva Ruta</span>
+                <a id="routeButton" style="bottom:65px"  class='button circle position-right blue'>
+                    <span class="material-icons" style="margin: 12px 0px;">add</span>
+                </a>
+
+                <!--<span style="bottom:25px" class="textButton position-right">Rutas</span>
+                <a id="historyButton"  style="" class='button circle position-right orange'>
+                <span class="material-icons" style="margin: 12px 0px;">history</span>
+                </a>-->
+
+                <!--<a id="listComplete"  class='button circle position-right gray'>
+                <span class="material-icons" style="margin: 12px 0px;">playlist_add_check</span>                    
+                </a>-->
+            </div>
+        </div>
+
+        <div id="newroute" data-role="page" >
+            <div data-role="header" class="mt-header" data-position="fixed" data-tap-toggle="false">
+                <span id="returnsettings" class="material-icons" style="position:absolute">arrow_back</span>
+                <h1 style="overflow:initial">RUTAS</h1>
+            </div>
+            <div data-role="content" style="padding-top: 5%;">
+                <!--<h1>Entregas</h1>-->
+                <ul data-role="listview">
+                    <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-first-child">
+                        DETALLE RUTA
+                    </li>
+                    <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-first-child">
+                        <input id="nameRoute" readonly type="text" style="text-transform:uppercase" />
+                    </li>
+                    <li>
+                        <ul id="listAllNew" data-role="listview" data-inset="true">
+                        </ul>
+                        <p style="height:60px;"></p>
+                    </li>
+                </ul>
+
+                <!--<span style="bottom:65px;left:10px" class="textButton position-left">Guardar</span>
+                <a id="saveRoute" style="bottom:5px" class='button circle position-left green'>&check;</a>-->
+
+                <!--<span style="bottom:65px;right:10px" class="textButton position-right">Agregar</span>
+                <a id="newItemR" class='button circle position-right blue'>&plus;</a>      -->
+
+                <span style="bottom:85px" class="textButton position-right">Agregar</span>
+                <a id="newItemR" style="bottom:65px"  class='button circle position-right blue'>
+                    <span class="material-icons" style="margin: 12px 0px;">add</span>
+                </a>
+            </div>
+        </div>
+
+        <div id="newItemRoute" data-role="page" >
+            <div data-role="header" class="mt-header" data-position="fixed" data-tap-toggle="false">
+                <span id="returnNewRoute" class="material-icons" style="position:absolute">arrow_back</span>
+                <h1 style="overflow:initial">RUTAS</h1>
+            </div>
+            <div data-role="content" style="padding-top: 5%;">
+
+                <div style="position:absolute;height:100%;width:90%">
+                    <h1>Nuevo Ingreso</h1>
+                    Nombre
+                    <input id="name" type="text" name="name" />
+                    Identificación
+                    <input id="idCustomer" type="text" name="idCustomer" />
+                    Dirección
+                    <input id="address" type="text" name="address" />
+                    Telefono
+                    <input id="tel" type="text" name="tel" />
+                    Vista Previa <img id="previewTakePhoto" src="" style="width:300px;height:200px;" />
+                    <div style="width:290px;height:300px;" id="map"></div>
+                </div>
+                <a id="saveNewItem" class='button circle position-left green'>&check;</a>
+                <a id="takePhotoNewItem" href="#" class='button circle position-right blue'>
+                    <span class="material-icons" style="margin: 10px 0px;">camera_enhance</span>
+                </a>
+            </div>
+        </div>
+
+        <!--<h1>Apache Cordova</h1>
+        <div id="deviceready" class="blink">
+        <p class="event listening">Connecting to Device</p>
+        <p class="event received">Device is Ready</p>
+        </div>-->
+
         <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
